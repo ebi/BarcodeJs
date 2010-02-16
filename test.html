@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<title>ean13 example</title>
+		<script type="text/javascript" src="BarcodeEan13.js"></script>
+		<script type="text/javascript">
+		  function loadBarcode() {
+		    var field = document.getElementById('barcodeText');
+		    code = new BarcodeEan13(document.getElementById('barcode'), field.value);
+		  }
+		</script>
+	</head>
+	<body onload="loadBarcode()">
+		<canvas id="barcode">Loading…</canvas>
+		<br />
+		<input id="barcodeText" name="barcodeText" type="text" onchange="code.set(this.value);" value="9001234155486" />
+	</body>
+</html>
