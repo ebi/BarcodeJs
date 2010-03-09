@@ -14,7 +14,31 @@ BarcodeEan13Test.prototype.setUp = function () {
     when(this.canvas).getContext('2d').thenReturn(this.context);
 };
 
-BarcodeEan13Test.prototype.testBasicDrawing = function () {
-    var barcode = new BarcodeEan13(this.canvas, '123123232', {});
+BarcodeEan13Test.prototype.testStandardSettings = function () {
+    var barcode = new BarcodeEan13(this.canvas, '123123232');
+    assertEquals('20px monospace', this.context.font);
+    assertEquals(100, this.canvas.height);
+    assertEquals(230, this.canvas.width);
     verify(this.canvas).getContext('2d');
+};
+
+BarcodeEan13Test.prototype.testCustomSettings = function () {
+    var barcode, options;
+    options = {
+        fontSize: '10',
+        font: 'Verdana',
+        line: 3
+    };
+    barcode = new BarcodeEan13(this.canvas, '123123232', options);
+    assertEquals('10px Verdana', this.context.font);
+    assertEquals(150, this.canvas.height);
+    assertEquals(305, this.canvas.width);
+    
+    options = {
+        width: 333,
+        height: 444
+    };
+    barcode = new BarcodeEan13(this.canvas, '123123232', options);
+    assertEquals(333, this.canvas.width);
+    assertEquals(444, this.canvas.height);
 };
