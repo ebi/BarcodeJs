@@ -114,7 +114,7 @@ function BarcodeEan13(canvas, code, userOptions) {
         for (i = 1, count = barcode.length; i < count ;i += 1) {
             sequence = encoding[barcode[i]][orientation[barcode[0]][i - 1]];
             drawSeparation(i);
-            ctx.fillStyle = colors[1]
+            ctx.fillStyle = colors[1];
             ctx.fillText(barcode[i], 0, height + options.fontSize);
             for (j = 0, seqCount = sequence.length; j < seqCount ;j += 1) {
                 ctx.fillStyle = getColor(i, j);
@@ -127,7 +127,7 @@ function BarcodeEan13(canvas, code, userOptions) {
         //Finishing separator
         drawSeparation(1);
         
-        ctx.fillStyle = colors[1]
+        ctx.fillStyle = colors[1];
         ctx.fillText('>', 2 * options.line, height + options.fontSize);
         //Reset to 0, 0
         ctx.translate( options.fontSize - options.width, 0);
