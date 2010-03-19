@@ -151,6 +151,7 @@ function BarcodeEan13(canvas, code, userOptions) {
      * Set the barcode to a new value and regenerate if alright
      */
     this.set = function (code) {
+        code = '' + code;
         if (this.validate(code)) {
             barcode = code;
             generate();

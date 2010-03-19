@@ -1,0 +1,16 @@
+BarcodeJs Source
+
+* License: http://www.apache.org/licenses/LICENSE-2.0
+
+Welcome to BarcodeJs.
+
+The library provides you a simple way to display ean13 barcode as a canvas image.
+
+Usage:
+* Include the BarcodeEan13.js file in your HTML code
+* Create an instance with an element and a first value
+* You can change the value over the set method
+* See test.html
+
+TODO:
+* Testing is unfinished

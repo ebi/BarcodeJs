@@ -42,3 +42,13 @@ BarcodeEan13Test.prototype.testCustomSettings = function () {
     assertEquals(333, this.canvas.width);
     assertEquals(444, this.canvas.height);
 };
+
+BarcodeEan13Test.prototype.testValidation = function () {
+    var barcode = new BarcodeEan13(this.canvas, '123123232');
+    assertFalse(barcode.validate(1));
+    assertFalse(barcode.validate(false));
+    assertFalse(barcode.validate('0'));
+    assertFalse(barcode.validate(12345678901));
+    assertFalse(barcode.validate(123456789012));
+    assertFalse(barcode.validate(1234567890123));
+}
